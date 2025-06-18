@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lofita Yeti - A premium NFT collection of 10,000 unique snowy yetis on the Sui blockchain, bursting with pink girl power!">
+    <meta name="keywords" content="Lofita Yeti, NFT, Sui blockchain, crypto art, women in crypto, pink aesthetic">
+    <meta name="author" content="Lofita Yeti Team">
+    <title>Lofita Yeti - Pink-Powered Snowy Girl Vibes on Sui</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWixL+ALaYApGygoY44A3Qf3G0k8aI1g6g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink-primary: #ff2b7b;
+            --pink-secondary: #ff66b2;
+            --pink-light: #ffe6f0;
+            --blue-dark: #1e3a8a;
+            --blue-light: #dbeafe;
+            --white: #ffffff;
+            --gray-dark: #1f2937;
+            --gray-light: #6b7280;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            --glass-bg: rgba(255, 230, 240, 0.2);
+            --glass-border: 1px solid rgba(255, 230, 240, 0.3);
+            --glow-pink: 0 0 15px rgba(255, 43, 123, 0.5);
+            --glow-hover: 0 0 25px rgba(255, 43, 123, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 400;
+            color: var(--gray-dark);
+            background: linear-gradient(180deg, var(--pink-light), var(--blue-light));
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Chewy', 'Comic Sans MS', cursive;
+            color: var(--pink-primary);
+            font-weight: 400;
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 { font-size: clamp(3rem, 8vw, 5rem); }
+        h2 { font-size: clamp(2rem, 6vw, 3.5rem); }
+        h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-18px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; 
+            transform: translateY(25px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        .float {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .pulse {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .yeti-image {
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            max-width: 100%;
+            height: auto;
+            border-radius: 1.5rem;
+        }
+
+        .yeti-image:hover {
+            transform: scale(1.08);
+            box-shadow: var(--shadow);
+        }
+
+        .glass-effect {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: var(--glass-border);
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+        }
+
+        .glow-effect {
+            box-shadow: var(--glow-pink);
+        }
+
+        .glow-effect:hover {
+            box-shadow: var(--glow-hover);
+            transform: scale(1.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(90deg, var(--pink-primary), var(--pink-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Header */
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, var(--pink-light), var(--blue-light));
+            position: relative;
+            text-align: center;
+            padding: 4rem 1.5rem;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--blue-dark);
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        header .content {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+        }
+
+        header h1 {
+            margin-bottom: 2rem;
+        }
+
+        header img {
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        header p {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            color: var(--pink-light);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        header a.cta {
+            display: inline-block;
+            padding: 1.5rem 3.5rem;
+            background: var(--pink-primary);
+            color: var(--white);
+            font-weight: 600;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.4s ease;
+        }
+
+        header a.cta:hover {
+            background: var(--pink-secondary);
+            transform: translateY(-3px);
+        }
+
+        /* Social Links */
+        .social-links {
+            position: fixed;
+            top: 50%;
+            left: 2.5rem;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 2rem;
+            border-radius: 2rem;
+            z-index: 20;
+        }
+
+        .social-links a {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: var(--glass-border);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.4s ease;
+        }
+
+        .social-links i {
+            font-size: 1.75rem;
+            color: var(--pink-primary);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--pink-primary);
+            transform: scale(1.1);
+        }
+
+        .social-links a:hover i {
+            color: var(--white);
+        }
+
+        /* Marquee */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            padding: 3.5rem 0;
+            margin: 4rem 0;
+            box-shadow: var(--shadow);
+            border: var(--glass-border);
+        }
+
+        .marquee-text {
+            display: inline-block;
+            font-family: 'Chewy', 'Comic Sans MS', cursive;
+            font-size: clamp(2rem, 5vw, 4rem);
+            color: var(--pink-primary);
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            animation: marquee 20s linear infinite;
+            padding-right: 4rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 7rem 2rem;
+            position: relative;
+        }
+
+        .section-bg {
+            background: linear-gradient(135deg, var(--pink-light), var(--blue-light));
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* Carousel */
+        .carousel {
+            position: relative;
+            max-width: 1100px;
+            height: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .carousel img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .carousel img.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 2rem;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            border-radius: 2rem;
+            z-index: -1;
+        }
+
+        .feature-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--gray-light);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Roadmap */
+        .roadmap-items {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .roadmap-item {
+            display: flex;
+            align-items: center;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .roadmap-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            border-radius: 2rem;
+            z-index: -1;
+        }
+
+        .roadmap-item img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 1rem;
+            margin-right: 2.5rem;
+        }
+
+        .roadmap-item h3 {
+            margin-bottom: 1rem;
+        }
+
+        .roadmap-item p {
+            color: var(--gray-light);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 2rem;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            border-radius: 2rem;
+            z-index: -1;
+        }
+
+        .team-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .team-card h3 {
+            margin-bottom: 0.75rem;
+        }
+
+        .team-card p.role {
+            color: var(--pink-secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .team-card p {
+            color: var(--gray-light);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* FAQ */
+        .faq-items {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .faq-item {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .faq-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            border-radius: 2rem;
+            z-index: -1;
+        }
+
+        .faq-item h3 {
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-item p {
+            display: none;
+            color: var(--gray-light);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .faq-item.active p {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--blue-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        footer p {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        footer a {
+            color: var(--pink-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--pink-secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            header img { max-width: 400px; }
+            .carousel { height: 500px; }
+            .feature-card img, .team-card img { height: 250px; }
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 3rem 1rem; }
+            header img { max-width: 300px; }
+            header a.cta { padding: 1.25rem 2.5rem; }
+            .social-links {
+                flex-direction: row;
+                bottom: 2rem;
+                top: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 1.5rem;
+            }
+            .social-links a { width: 60px; height: 60px; }
+            .social-links i { font-size: 1.5rem; }
+            section { padding: 5rem 1rem; }
+            .carousel { height: 400px; }
+            .features-grid, .team-grid { grid-template-columns: 1fr; }
+            .feature-card, .team-card { padding: 2rem; }
+            .feature-card img, .team-card img { height: 200px; }
+            .roadmap-item { flex-direction: column; align-items: flex-start; }
+            .roadmap-item img { width: 100%; height: 120px; margin-right: 0; margin-bottom: 1.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            header img { max-width: 220px; }
+            header a.cta { padding: 1rem 2rem; }
+            .social-links a { width: 50px; height: 50px; }
+            .social-links i { font-size: 1.25rem; }
+            .carousel { height: 300px; }
+            .feature-card img, .team-card img { height: 180px; }
+            .roadmap-item img { height: 100px; }
+            .faq-item, .roadmap-item, .feature-card, .team-card { padding: 1.5rem; }
+        }
+
+        /* Accessibility */
+        a:focus, button:focus {
+            outline: 3px solid var(--pink-primary);
+            outline-offset: 3px;
+        }
+
+        /* Additional Styling for Premium Feel */
+        .section-divider {
+            width: 120px;
+            height: 5px;
+            background: var(--pink-primary);
+            margin: 2rem auto;
+            border-radius: 3px;
+            box-shadow: var(--glow-pink);
+        }
+
+        .hover-scale {
+            transition: transform 0.4s ease;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.03);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--pink-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--pink-primary);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--pink-secondary);
+        }
+
+        /* Particle Background Effect */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--pink-primary);
+            opacity: 0.3;
+            animation: float 8s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) { width: 20px; height: 20px; top: 10%; left: 15%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 15px; height: 15px; top: 30%; left: 80%; animation-delay: 2s; }
+        .particle:nth-child(3) { width: 25px; height: 25px; top: 50%; left: 10%; animation-delay: 4s; }
+        .particle:nth-child(4) { width: 18px; height: 18px; top: 70%; left: 90%; animation-delay: 6s; }
+        .particle:nth-child(5) { width: 22px; height: 22px; top: 20%; left: 50%; animation-delay: 3s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="content">
+            <h1 class="pulse text-gradient">Lofita Yeti</h1>
+            <img src="/lofita_images_1.jpg" alt="Lofita Yeti" class="yeti-image float" data-src="/lofita_images_1.jpg">
+            <p>Snowy, Sassy, and Pink! The Fiercest Girl Yetis on Sui!</p>
+            <a href="#buy" class="cta glass-effect glow-effect">Grab Your Yeti</a>
+        </div>
+        <div class="social-links glass-effect">
+            <a href="https://x.com/lofitatheyeti" class="glass-effect glow-effect" title="Twitter">
+                <i class="fab fa-x-twitter"></i>
+            </a>
+            <a href="https://t.me/LofitaYETI" class="glass-effect glow-effect" title="Telegram">
+                <i class="fab fa-telegram-plane"></i>
+            </a>
+            <a href="https://dexscreener.com" class="glass-effect glow-effect" title="Dexscreener">
+                <i class="fas fa-chart-line"></i>
+            </a>
+            <a href="https://raidenx.io" class="glass-effect glow-effect" title="RaidenX">
+                <i class="fas fa-bolt"></i>
+            </a>
+        </div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section-bg">
+        <div class="container">
+            <h2 class="fade-in text-gradient">Our Snowy Story</h2>
+            <div class="section-divider"></div>
+            <div class="carousel glass-effect">
+                <img src="/lofita_images_2.jpg" alt="Lofita Yeti 1" class="carousel-image active" data-src="/lofita_images_2.jpg">
+                <img src="/lofita_images_3.jpg" alt="Lofita Yeti 2" class="carousel-image" data-src="/lofita_images_3.jpg">
+            </div>
+            <p class="fade-in" style="max-width: 900px; margin: 3rem auto; text-align: center; font-family: 'Poppins', sans-serif;">
+                Dive into the frosty world of Lofita Yeti, where girl power sparkles like fresh snow! Our 10,000 unique NFTs blend sassy style with icy charm, built on the Sui blockchain. Join our snowy sisterhood to create, connect, and conquer the crypto slopes in pink perfection!
+            </p>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee-container">
+        <div class="marquee-text">
+            WE ARE LOFITA. WE ARE LOFITA. WE ARE LOFITA. WE ARE LOFITA. WE ARE LOFITA. WE ARE LOFITA.
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section id="features">
+        <div class="container">
+            <h2 class="fade-in text-gradient">Frosty Features</h2>
+            <div class="section-divider"></div>
+            <div class="features-grid">
+                <div class="feature-card glass-effect fade-in hover-scale" style="animation-delay: 0.3s;">
+                    <img src="/lofita_images_4.jpg" alt="Frosty Unique NFTs" class="yeti-image" data-src="/lofita_images_4.jpg">
+                    <h3>Frosty Unique NFTs</h3>
+                    <p>Snag one of 10,000 exclusive Lofita Yetis, each rocking unique traits with a snowy, pink flair.</p>
+                </div>
+                <div class="feature-card glass-effect fade-in hover-scale" style="animation-delay: 0.6s;">
+                    <img src="/lofita_images_5.jpg" alt="Snowy Community Vibes" class="yeti-image" data-src="/lofita_images_5.jpg">
+                    <h3>Snowy Community Vibes</h3>
+                    <p>Slide into our Telegram and X for icy giveaways, frosty events, and warm chats.</p>
+                </div>
+                <div class="feature-card glass-effect fade-in hover-scale" style="animation-delay: 0.9s;">
+                    <img src="/lofita_images_6.jpg" alt="Icy Empowerment" class="yeti-image" data-src="/lofita_images_6.jpg">
+                    <h3>Icy Empowerment</h3>
+                    <p>Support women in crypto with our frosty charity initiatives and cool collabs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="section-bg">
+        <div class="container">
+            <h2 class="fade-in text-gradient">Icy Roadmap</h2>
+            <div class="section-divider"></div>
+            <div class="roadmap-items">
+                <div class="roadmap-item glass-effect fade-in hover-scale" style="animation-delay: 0.3s;">
+                    <img src="/lofita_images_7.jpg" alt="Roadmap Q1 2025" class="yeti-image" data-src="/lofita_images_7.jpg">
+                    <div>
+                        <h3>Q1 2025</h3>
+                        <p>Launch Lofita Yeti NFT presale and build our snowy community.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item glass-effect fade-in hover-scale" style="animation-delay: 0.6s;">
+                    <img src="/lofita_images_8.jpg" alt="Roadmap Q2 2025" class="yeti-image" data-src="/lofita_images_8.jpg">
+                    <div>
+                        <h3>Q2 2025</h3>
+                        <p>Public mint and first frosty donation to women’s crypto education.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item glass-effect fade-in hover-scale" style="animation-delay: 0.9s;">
+                    <img src="/lofita_images_9.jpg" alt="Roadmap Q3 2025" class="yeti-image" data-src="/lofita_images_9.jpg">
+                    <div>
+                        <h3>Q3 2025</h3>
+                        <p>Exclusive icy merch drop and virtual yeti snow party.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item glass-effect fade-in hover-scale" style="animation-delay: 1.2s;">
+                    <img src="/lofita_images_10.jpg" alt="Roadmap Q4 2025" class="yeti-image" data-src="/lofita_images_10.jpg">
+                    <div>
+                        <h3>Q4 2025</h3>
+                        <p>Metaverse integration and Lofita Yeti staking rewards in a winter wonderland.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+        <div class="container">
+            <h2 class="fade-in text-gradient">Chill Team</h2>
+            <div class="section-divider"></div>
+            <div class="team-grid">
+                <div class="team-card glass-effect fade-in hover-scale" style="animation-delay: 0.3s;">
+                    <img src="/lofita_images_11.jpg" alt="Snowy Sarah" class="yeti-image" data-src="/lofita_images_11.jpg">
+                    <h3>Snowy Sarah</h3>
+                    <p class="role">Frosty Founder & Artist</p>
+                    <p>Sculpting icy yetis with a pink, snowy twist.</p>
+                </div>
+                <div class="team-card glass-effect fade-in hover-scale" style="animation-delay: 0.6s;">
+                    <img src="/lofita_images_12.jpg" alt="Chilly Chloe" class="yeti-image" data-src="/lofita_images_12.jpg">
+                    <h3>Chilly Chloe</h3>
+                    <p class="role">Icy Developer</p>
+                    <p>Coding our frosty smart contracts for the Sui slopes.</p>
+                </div>
+                <div class="team-card glass-effect fade-in hover-scale" style="animation-delay: 0.9s;">
+                    <img src="/lofita_images_13.jpg" alt="Icy Ivy" class="yeti-image" data-src="/lofita_images_13.jpg">
+                    <h3>Icy Ivy</h3>
+                    <p class="role">Snowy Community Manager</p>
+                    <p>Keeping our community vibes as warm as a cozy igloo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section-bg">
+        <div class="container">
+            <h2 class="fade-in text-gradient">Snowy FAQs</h2>
+            <div class="section-divider"></div>
+            <div class="faq-items">
+                <div class="faq-item glass-effect fade-in hover-scale" style="animation-delay: 0.3s;">
+                    <h3>What is Lofita Yeti?</h3>
+                    <p>Lofita Yeti is a frosty, girl-powered NFT collection of 10,000 unique snowy yetis on the Sui blockchain, blending icy creativity with pink sass.</p>
+                </div>
+                <div class="faq-item glass-effect fade-in hover-scale" style="animation-delay: 0.6s;">
+                    <h3>How do I snag a Lofita Yeti?</h3>
+                    <p>Join our presale or public mint on our website. Connect your wallet and claim your snowy yeti!</p>
+                </div>
+                <div class="faq-item glass-effect fade-in hover-scale" style="animation-delay: 0.9s;">
+                    <h3>Where’s the contract address?</h3>
+                    <p>Find the address link above to copy it and verify on the blockchain explorer.</p>
+                </div>
+                <div class="faq-item glass-effect fade-in hover-scale" style="animation-delay: 1.2s;">
+                    <h3>What makes Lofita Yeti special?</h3>
+                    <p>Each Lofita Yeti is uniquely crafted with frosty traits and pink vibes, powered by Sui’s fast and secure blockchain for a chilly, stylish experience.</p>
+                </div>
+                <div class="faq-item glass-effect fade-in hover-scale" style="animation-delay: 1.5s;">
+                    <h3>How do I join the snowy community?</h3>
+                    <p>Hop into our Telegram and X communities via the links above to chill with other Yeti fans, join frosty events, and stay in the loop!</p>
+                </div>
+            </div>
+            <div class="carousel glass-effect" style="margin-top: 4rem;">
+                <img src="/lofita_images_14.jpg" alt="Lofita Yeti 1" class="carousel-image active" data-src="/lofita_images_14.jpg">
+                <img src="/lofita_images_15.jpg" alt="Lofita Yeti 2" class="carousel-image" data-src="/lofita_images_15.jpg">
+                <img src="/lofita_images_16.jpg" alt="Lofita Yeti 3" class="carousel-image" data-src="/lofita_images_16.jpg">
+                <img src="/lofita_images_17.jpg" alt="Lofita Yeti 4" class="carousel-image" data-src="/lofita_images_17.jpg">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Lofita Yeti. All Rights Reserved in the Snowy Slopes. | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Carousel Functionality
+        function initializeCarousels() {
+            const carousels = document.querySelectorAll('.carousel');
+            carousels.forEach(carousel => {
+                const images = carousel.querySelectorAll('.carousel-image');
+                let currentIndex = 0;
+
+                function showImage(index) {
+                    images.forEach((img, i) => {
+                        img.classList.toggle('active', i === index);
+                    });
+                }
+
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    showImage(currentIndex);
+                }, 5000);
+            });
+        }
+
+        // FAQ Toggle
+        function initializeFAQs() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    faqItems.forEach(i => i.classList.remove('active'));
+                    if (!isActive) item.classList.add('active');
+                });
+            });
+        }
+
+        // Fade-in on Scroll
+        function initializeFadeIn() {
+            const fadeIns = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeIns.forEach(el => observer.observe(el));
+        }
+
+        // Lazy Load Images
+        function initializeLazyLoad() {
+            const images = document.querySelectorAll('img[data-src]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        observer.unobserve(img);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            images.forEach(img => imageObserver.observe(img));
+        }
+
+        // Smooth Scroll for Anchor Links
+        function initializeSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        }
+
+        // Parallax Effect for Header
+        function initializeParallax() {
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                const scrollPosition = window.scrollY;
+                header.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+            });
+        }
+
+        // Initialize All
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeCarousels();
+            initializeFAQs();
+            initializeFadeIn();
+            initializeLazyLoad();
+            initializeSmoothScroll();
+            initializeParallax();
+        });
+    </script>
+</body>
+</html>

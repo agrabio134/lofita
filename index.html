@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lofita Yeti - Coming Soon! A premium NFT collection of 10,000 unique snowy yetis on the Sui blockchain.">
+    <meta name="keywords" content="Lofita Yeti, NFT, Sui blockchain, crypto art, women in crypto, pink aesthetic">
+    <meta name="author" content="Lofita Yeti Team">
+    <link rel="shortcut icon" href="/logo.png" type="image/x-icon">
+    <title>Lofita Yeti - Coming Soon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWixL+ALaYApGygoY44A3Qf3G0k8aI1g6g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink-primary: #ff2b7b;
+            --pink-secondary: #ff66b2;
+            --pink-light: #ffe6f0;
+            --blue-dark: #1e3a8a;
+            --blue-light: #dbeafe;
+            --white: #ffffff;
+            --gray-dark: #1f2937;
+            --gray-light: #6b7280;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            --glass-bg: rgba(255, 230, 240, 0.2);
+            --glass-border: 1px solid rgba(255, 230, 240, 0.3);
+            --glow-pink: 0 0 15px rgba(255, 43, 123, 0.5);
+            --glow-hover: 0 0 25px rgba(255, 43, 123, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+              overflow: hidden; /* Hide scrollbars */
+
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 400;
+            color: var(--gray-dark);
+            /* background: url('background_img.jpg') no-repeat center center/cover; */
+            background: url('lofita_images_8.jpg') no-repeat center center/cover;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--blue-dark);
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1100px;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-family: 'Chewy', 'Comic Sans MS', cursive;
+            font-size: clamp(4rem, 10vw, 6rem);
+            color: var(--pink-primary);
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(90deg, var(--pink-primary), var(--pink-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 2rem;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .logo {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border-radius: 1.5rem;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.08);
+            box-shadow: var(--glow-pink);
+        }
+
+        .social-links-left {
+            position: fixed;
+            top: 50%;
+            left: 5rem;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 1rem;
+            z-index: 3;
+        }
+
+        .social-links-right {
+            position: fixed;
+            top: 50%;
+            right: 5rem;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 1rem;
+            z-index: 3;
+        }
+
+        .social-links-left a,
+        .social-links-right a {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: var(--glass-border);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        /* Individual animations for each bubble */
+        .social-links-left a:nth-child(1) {
+            transform: translateX(10px);
+            animation: sway-left-right 4s ease-in-out infinite;
+            animation-delay: 0s;
+        }
+        .social-links-left a:nth-child(2) {
+            transform: translateX(-15px);
+            animation: sway-up-down 4.5s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+        .social-links-right a:nth-child(1) {
+            transform: translateX(-20px);
+            animation: sway-left-right 4.2s ease-in-out infinite;
+            animation-delay: 0s;
+        }
+        .social-links-right a:nth-child(2) {
+            transform: translateX(15px);
+            animation: sway-up-down 4.7s ease-in-out infinite;
+            animation-delay: 0.3s;
+        }
+        .social-links-right a:nth-child(3) {
+            transform: translateX(-10px);
+            animation: sway-left-right 4.4s ease-in-out infinite;
+            animation-delay: 0.6s;
+        }
+        .social-links-right a:nth-child(4) {
+            transform: translateX(20px);
+            animation: sway-up-down 4.3s ease-in-out infinite;
+            animation-delay: 0.9s;
+        }
+
+        /* Gentle animations */
+        @keyframes sway-left-right {
+            0% { transform: translateX(10px); }
+            50% { transform: translateX(-10px); }
+            100% { transform: translateX(10px); }
+        }
+
+        @keyframes sway-up-down {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
+
+        .social-links-left a:hover,
+        .social-links-right a:hover {
+            background: var(--pink-primary);
+            transform: translate(5px, -5px);
+            box-shadow: var(--glow-hover);
+            animation-play-state: paused;
+        }
+
+        .social-links-left i,
+        .social-links-right i {
+            font-size: 1.75rem;
+            color: var(--pink-primary);
+            transition: all 0.3s ease;
+        }
+
+        .social-links-right img, .social-links-left img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+
+        .social-links-left a:hover i,
+        .social-links-right a:hover i,
+        .social-links-right a:hover img {
+            color: var(--white);
+            filter: brightness(1.2);
+        }
+
+        .contract-address {
+            display: inline-block;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: var(--glass-border);
+            padding: 1rem 2rem;
+            border-radius: 1rem;
+            color: var(--pink-primary);
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            word-break: break-all;
+        }
+
+        .contract-address:hover {
+            background: var(--pink-primary);
+            color: var(--white);
+            transform: scale(1.05);
+            box-shadow: var(--glow-hover);
+        }
+
+        /* Snow Particles */
+        .snow-particle {
+            position: absolute;
+            background: var(--white);
+            border-radius: 50%;
+            opacity: 0.8;
+            z-index: 1;
+            animation: falling-snow linear infinite;
+        }
+
+        @keyframes falling-snow {
+            0% { transform: translateY(-100vh); opacity: 0.8; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        .snow-particle:nth-child(1) { width: 5px; height: 5px; left: 10%; animation-duration: 8s; animation-delay: 0s; }
+        .snow-particle:nth-child(2) { width: 3px; height: 3px; left: 20%; animation-duration: 10s; animation-delay: 1s; }
+        .snow-particle:nth-child(3) { width: 4px; height: 4px; left: 30%; animation-duration: 9s; animation-delay: 2s; }
+        .snow-particle:nth-child(4) { width: 6px; height: 6px; left: 40%; animation-duration: 7s; animation-delay: 3s; }
+        .snow-particle:nth-child(5) { width: 5px; height: 5px; left: 50%; animation-duration: 8s; animation-delay: 4s; }
+        .snow-particle:nth-child(6) { width: 3px; height: 3px; left: 60%; animation-duration: 10s; animation-delay: 5s; }
+        .snow-particle:nth-child(7) { width: 4px; height: 4px; left: 70%; animation-duration: 9s; animation-delay: 6s; }
+        .snow-particle:nth-child(8) { width: 6px; height: 6px; left: 80%; animation-duration: 7s; animation-delay: 7s; }
+        .snow-particle:nth-child(9) { width: 5px; height: 5px; left: 90%; animation-duration: 8s; animation-delay: 8s; }
+        .snow-particle:nth-child(10) { width: 3px; height: 3px; left: 95%; animation-duration: 10s; animation-delay: 9s; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 7rem;
+            }
+
+            .content {
+                padding: 1.5rem;
+                order: 2;
+            }
+
+            .logo {
+                max-width: 200px;
+            }
+
+            .social-links-left,
+            .social-links-right {
+                position: static;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 1rem;
+                padding: 0.5rem;
+                transform: translateY(0);
+                order: 1;
+                width: 100%;
+                max-width: 600px;
+                flex-wrap: wrap;
+            }
+
+            .social-links-left {
+                margin-bottom: 1rem;
+            }
+
+            .social-links-right {
+                margin-bottom: 1rem;
+            }
+
+            .social-links-left a,
+            .social-links-right a {
+                width: 60px;
+                height: 60px;
+            }
+
+            .social-links-left i,
+            .social-links-right i {
+                font-size: 1.5rem;
+            }
+
+            .social-links-right img,
+            .social-links-left img {
+                width: 28px;
+                height: 28px;
+            }
+
+            .social-links-left a:nth-child(1),
+            .social-links-left a:nth-child(2),
+            .social-links-right a:nth-child(1),
+            .social-links-right a:nth-child(2),
+            .social-links-right a:nth-child(3),
+            .social-links-right a:nth-child(4) {
+                transform: translateX(0);
+            }
+
+            .contract-address {
+                padding: 0.75rem 1.5rem;
+                font-size: clamp(0.875rem, 1.8vw, 1rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                max-width: 150px;
+            }
+
+            .social-links-left a,
+            .social-links-right a {
+                width: 50px;
+                height: 50px;
+            }
+
+            .social-links-left i,
+            .social-links-right i {
+                font-size: 1.25rem;
+            }
+
+            .social-links-right img,
+            .social-links-left img {
+                width: 24px;
+                height: 24px;
+            }
+
+            .contract-address {
+                padding: 0.5rem 1rem;
+                font-size: clamp(0.75rem, 1.6vw, 0.875rem);
+            }
+        }
+
+        /* Accessibility */
+        a:focus,
+        .contract-address:focus {
+            outline: 3px solid var(--pink-primary);
+            outline-offset: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="social-links-left glass-effect">
+        <a href="https://x.com/lofitatheyeti" class="glass-effect glow-effect" title="Twitter">
+            <img src="x.png" alt="Twitter">
+        </a>
+        <a href="https://t.me/LofitaYETI" class="glass-effect glow-effect" title="Telegram">
+            <img src="telegram.png" alt="Telegram">
+        </a>
+    </div>
+    <div class="social-links-right glass-effect">
+        <a href="https://dexscreener.com/sui/0x0c46db8f8d243416901318fc0824fb4c7edc3012d1407a38109bb2a11ff91886" class="glass-effect glow-effect" title="Dexscreener">
+            <img src="dex.png" alt="Dexscreener">
+        </a>
+        <a href="https://moonbags.io/bondingcurve/coins/lofita-the-yeti-sui-WpoiuylOHb" class="glass-effect glow-effect" title="Moonbags">
+            <img src="moonbags.png" alt="Moonbags">
+        </a>
+        <a href="https://app.cetus.zone/swap/0x2::sui::SUI/0x808a8287e9c87c1f97fb133dbd206381804ebd7edfe1af4dbab5eb73668a3449::lofita::LOFITA" class="glass-effect glow-effect" title="Cetus">
+            <img src="cetus.png" alt="Cetus">
+        </a>
+        <a href="https://raidenx.io/sui/cetus-lofita-sui-261512" class="glass-effect glow-effect" title="RaidenX">
+            <img src="raidenx.png" alt="RaidenX">
+        </a>
+    </div>
+    <div class="content">
+        <img src="logo.png" alt="Lofita Yeti Logo" class="logo">
+        <h1>SOON</h1>
+        <div class="contract-address glass-effect" onclick="copyContractAddress()" title="Click to copy contract address">
+            0x808a8287e9c87c1f97fb133dbd206381804ebd7edfe1af4dbab5eb73668a3449::lofita::LOFITA
+        </div>
+    </div>
+    <!-- Snow Particles -->
+    <div class="snow-particle"></div>
+    <div class="snow-particle"></div>
+    <div class="snow-particle"></div>
+    <div class="snow-particle"></div>
+    <div class="snow-particle"></div>
+    <div class="snow-particle"></div>
+    <div class="snow-particle"></div>
+    <div class="snow-particle"></div>
+    <div class="snow-particle"></div>
+    <div class="snow-particle"></div>
+
+    <script>
+        function copyContractAddress() {
+            const contractAddress = '0x808a8287e9c87c1f97fb133dbd206381804ebd7edfe1af4dbab5eb73668a3449::lofita::LOFITA';
+            navigator.clipboard.writeText(contractAddress).then(() => {
+                alert('Contract address copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
