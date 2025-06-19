@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lofita Yeti Auction on Sui Blockchain">
+    <meta name="keywords" content="Lofita Yeti, NFT, Sui Blockchain, Auction">
+    <title>Lofita Yeti Auction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #f1f5f9;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.7);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            color: #ff2b7b;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 5px rgba(255, 43, 123, 0.3);
+        }
+
+        .auction-container {
+            max-width: 1200px;
+            margin: 1.5rem auto;
+            padding: 0 1rem;
+        }
+
+        .featured-nft {
+            max-width: 650px;
+            margin: 0 auto 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 1.2rem;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .featured-nft:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+        }
+
+        .nft-left {
+            flex-shrink: 0;
+            width: 250px;
+        }
+
+        .nft-image {
+            height: 250px;
+            width: 250px;
+            background: #1e40af;
+            border: 2px dashed #ff2b7b;
+            border-radius: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .attributes {
+            margin-top: 1rem;
+        }
+
+        .attributes p {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.2rem 0;
+            font-size: 0.85rem;
+        }
+
+        .attributes p span:first-child {
+            font-weight: 500;
+        }
+
+        .attributes p span:last-child {
+            color: #f1f5f9;
+        }
+
+        .nft-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nft-details h2 {
+            color: #ff2b7b;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .nft-details p {
+            margin-bottom: 0.4rem;
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        .bid-section {
+            margin-top: auto;
+        }
+
+        #timer {
+            font-size: 1rem;
+            color: #ff2b7b;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        #highest-bidder {
+            font-size: 0.9rem;
+            color: #ff2b7b;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            background: rgba(255, 43, 123, 0.1);
+            padding: 0.3rem 0.6rem;
+            border-radius: 0.3rem;
+            display: inline-block;
+        }
+
+        .bid-form {
+            display: flex;
+            gap: 0.6rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .bid-form input {
+            flex: 1;
+            padding: 0.4rem;
+            border: 1px solid #ff2b7b;
+            border-radius: 0.4rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: #f1f5f9;
+            font-size: 0.85rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .bid-form input:focus {
+            outline: none;
+            border-color: #ff66b2;
+        }
+
+        .bid-form button {
+            padding: 0.4rem 0.8rem;
+            background: #ff2b7b;
+            color: #f1f5f9;
+            border: none;
+            border-radius: 0.4rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .bid-form button:hover {
+            background: #ff66b2;
+            transform: translateY(-2px);
+        }
+
+        .bid-history {
+            max-height: 100px;
+            overflow-y: auto;
+            padding: 0.4rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0.4rem;
+            font-size: 0.8rem;
+        }
+
+        .bid-history p {
+            margin: 0.2rem 0;
+            color: #94a3b8;
+        }
+
+        .details-section {
+            max-width: 1200px;
+            margin: 0 auto 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0.8rem;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .details-section .search-bar {
+            display: flex;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .details-section .search-bar input {
+            flex: 1;
+            padding: 0.4rem;
+            border: 1px solid #ff2b7b;
+            border-radius: 0.4rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: #f1f5f9;
+            font-size: 0.85rem;
+        }
+
+        .details-section .search-bar button {
+            padding: 0.4rem 0.8rem;
+            background: #ff2b7b;
+            color: #f1f5f9;
+            border: none;
+            border-radius: 0.4rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .details-section .search-bar button:hover {
+            background: #ff66b2;
+        }
+
+        .details-section nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .details-section nav a {
+            color: #ff2b7b;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .details-section nav a:hover {
+            color: #ff66b2;
+        }
+
+        .nft-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+
+        .nft-grid .nft-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.8rem;
+            padding: 0.6rem;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .nft-grid .nft-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .nft-grid .nft-image {
+            height: 100px;
+            margin-bottom: 0.6rem;
+        }
+
+        .nft-grid .nft-details h3 {
+            color: #ff2b7b;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .nft-grid .nft-details p {
+            color: #94a3b8;
+            font-size: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            .featured-nft {
+                padding: 0.8rem;
+                max-width: 100%;
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .nft-left {
+                width: 100%;
+            }
+
+            .nft-image {
+                height: 180px;
+                width: 100%;
+            }
+
+            .logo {
+                font-size: 1.6rem;
+            }
+
+            .bid-form {
+                flex-direction: column;
+            }
+
+            .bid-form button {
+                width: 100%;
+            }
+
+            .details-section .search-bar {
+                flex-direction: column;
+            }
+
+            .details-section .search-bar button {
+                width: 100%;
+            }
+
+            .nft-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nft-grid .nft-image {
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Lofita Yeti Auction</div>
+    </header>
+    <div class="auction-container">
+        <div class="featured-nft">
+            <div class="nft-left">
+                <div class="nft-image">Mystic Yeti #001 Sample Image</div>
+                <div class="attributes">
+                    <p><span>Fur:</span><span>Light Purple <em>6.95%</em></span></p>
+                    <p><span>Rarity Tier:</span><span>Tier 1 <em>37.35%</em></span></p>
+                    <p><span>Background:</span><span>White <em>9.92%</em></span></p>
+                    <p><span>Accessories:</span><span>None <em>16.08%</em></span></p>
+                    <p><span>Background Accessory:</span><span>None <em>49.23%</em></span></p>
+                    <p><span>Head Gear:</span><span>None <em>17.98%</em></span></p>
+                    <p><span>Mouth:</span><span>Blue Smile <em>4.79%</em></span></p>
+                    <p><span>Eyes:</span><span>Green Laser <em>7.61%</em></span></p>
+                    <p><span>Face Pads:</span><span>Purple <em>31.41%</em></span></p>
+                </div>
+            </div>
+            <div class="nft-details">
+                <h2>Mystic Yeti #001 Sample</h2>
+                <p>Edition of 10,000 | Sui Blockchain | Tradeport-Listed</p>
+                <p><strong>Top Bid:</strong> 20 SUI</p>
+                <p><strong>Token ID:</strong> 0x3eeb0...236b1ff</p>
+                <p><strong>Ranking:</strong> 4,668 / 5,555</p>
+                <p><strong>Owner:</strong> db65...cd56</p>
+                <div class="bid-section">
+                    <div id="timer">Time Left: Calculating...</div>
+                    <div id="highest-bidder">Highest Bidder: User1 (1.5 SUI)</div>
+                    <div class="bid-form">
+                        <input type="number" id="bid-amount" placeholder="Enter bid in SUI (min 1.6)" min="1.6" step="0.1">
+                        <button onclick="placeBid()">Place Bid</button>
+                    </div>
+                    <div class="bid-history">
+                        <p>08:25 AM, Jun 19, 2025 - 1.5 SUI by User1</p>
+                        <p>08:23 AM, Jun 19, 2025 - 1.4 SUI by User2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="details-section">
+            <div class="search-bar">
+                <input type="text" placeholder="Search NFTs..." id="search-input">
+                <button onclick="searchNFTs()">Search</button>
+            </div>
+            <nav>
+                <a href="#categories">Categories</a>
+                <a href="#auctions">Live Auctions</a>
+                <a href="#my-nfts">My NFTs</a>
+                <a href="#help">Help</a>
+            </nav>
+        </div>
+        <div class="nft-grid">
+            <div class="nft-card">
+                <div class="nft-image">Lofita Yeti #002 Image</div>
+                <div class="nft-details">
+                    <h3>Lofita Yeti #002</h3>
+                    <p>Edition of 10,000 | Sui Blockchain</p>
+                </div>
+            </div>
+            <div class="nft-card">
+                <div class="nft-image">Lofita Yeti #003 Image</div>
+                <div class="nft-details">
+                    <h3>Lofita Yeti #003</h3>
+                    <p>Edition of 10,000 | Sui Blockchain</p>
+                </div>
+            </div>
+            <div class="nft-card">
+                <div class="nft-image">Lofita Yeti #004 Image</div>
+                <div class="nft-details">
+                    <h3>Lofita Yeti #004</h3>
+                    <p>Edition of 10,000 | Sui Blockchain</p>
+                </div>
+            </div>
+            <div class="nft-card">
+                <div class="nft-image">Lofita Yeti #005 Image</div>
+                <div class="nft-details">
+                    <h3>Lofita Yeti #005</h3>
+                    <p>Edition of 10,000 | Sui Blockchain</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentBid = 1.5;
+        let highestBidder = "User1";
+        let timeLeft = 7200; // 2 hours from 08:26 AM PST, Jun 19, 2025
+
+        function updateTimer() {
+            const timer = document.getElementById('timer');
+            const endTime = new Date('2025-06-19T10:26:00-07:00').getTime();
+            const interval = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = endTime - now;
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                timer.textContent = `Time Left: ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                if (distance < 0) {
+                    clearInterval(interval);
+                    timer.textContent = 'Auction Ended';
+                    document.getElementById('highest-bidder').textContent = 'Auction Ended';
+                }
+            }, 1000);
+        }
+
+        function placeBid() {
+            const bidAmount = parseFloat(document.getElementById('bid-amount').value);
+            if (bidAmount && bidAmount > currentBid + 0.1) {
+                currentBid = bidAmount;
+                const bidHistory = document.querySelector('.bid-history');
+                const now = new Date();
+                const timeStr = now.toLocaleTimeString('en-US', { hour12: true }) + ', ' + now.toLocaleDateString();
+                bidHistory.innerHTML += `<p>${timeStr} - ${currentBid.toFixed(1)} SUI by You</p>`;
+                bidHistory.scrollTop = bidHistory.scrollHeight;
+                highestBidder = "You";
+                document.getElementById('highest-bidder').textContent = `Highest Bidder: ${highestBidder} (${currentBid.toFixed(1)} SUI)`;
+                alert(`Bid placed successfully! New highest bid: ${currentBid.toFixed(1)} SUI`);
+                document.getElementById('bid-amount').value = '';
+            } else {
+                alert('Bid must be at least 0.1 SUI higher than the current bid of ' + currentBid.toFixed(1) + ' SUI!');
+            }
+        }
+
+        function searchNFTs() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            alert(`Searching for: ${query}`);
+            // Add search logic here if needed
+        }
+
+        window.onload = updateTimer;
+    </script>
+</body>
+</html>

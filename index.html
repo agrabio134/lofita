@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lofita Yeti - Coming Soon! A premium NFT collection of 10,000 unique snowy yetis on the Sui blockchain.">
+    <meta name="description" content="Lofita Yeti - A premium NFT collection of 10,000 unique snowy yetis on the Sui blockchain.">
     <meta name="keywords" content="Lofita Yeti, NFT, Sui blockchain, crypto art, women in crypto, pink aesthetic">
     <meta name="author" content="Lofita Yeti Team">
     <link rel="shortcut icon" href="/logo.png" type="image/x-icon">
-    <title>Lofita Yeti - Coming Soon</title>
+    <title>Lofita Yeti - Official Docs</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWixL+ALaYApGygoY44A3Qf3G0k8aI1g6g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -21,7 +21,7 @@
             --gray-dark: #1f2937;
             --gray-light: #6b7280;
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            --glass-bg: rgba(255, 230, 240, 0.2);
+            --glass-bg: rgba(255, 230, 240, 0.533);
             --glass-border: 1px solid rgba(255, 230, 240, 0.3);
             --glow-pink: 0 0 15px rgba(255, 43, 123, 0.5);
             --glow-hover: 0 0 25px rgba(255, 43, 123, 0.7);
@@ -35,12 +35,10 @@
         }
 
         body {
-              overflow: hidden; /* Hide scrollbars */
-
+            overflow: hidden;
             font-family: 'Montserrat', Arial, sans-serif;
             font-weight: 400;
             color: var(--gray-dark);
-            /* background: url('background_img.jpg') no-repeat center center/cover; */
             background: url('/back.jpg') no-repeat center center/cover;
             min-height: 100vh;
             display: flex;
@@ -66,31 +64,15 @@
             text-align: center;
             max-width: 1100px;
             padding: 2rem;
-        }
-
-        h1 {
-            font-family: 'Chewy', 'Comic Sans MS', cursive;
-            font-size: clamp(4rem, 10vw, 6rem);
-            color: var(--pink-primary);
-            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-            background: linear-gradient(90deg, var(--pink-primary), var(--pink-secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 2rem;
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .logo {
             max-width: 300px;
             height: auto;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             box-shadow: var(--shadow);
             border-radius: 1.5rem;
             transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -99,6 +81,38 @@
         .logo:hover {
             transform: scale(1.08);
             box-shadow: var(--glow-pink);
+        }
+
+        .docs-button {
+            display: inline-block;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: var(--glass-border);
+            padding: 1rem 2.5rem;
+            border-radius: 2rem;
+            color: var(--pink-primary);
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .docs-button:hover {
+            background: var(--pink-primary);
+            color: var(--white);
+            transform: scale(1.05);
+            box-shadow: var(--glow-hover);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
 
         .social-links-left {
@@ -141,7 +155,6 @@
             position: relative;
         }
 
-        /* Individual animations for each bubble */
         .social-links-left a:nth-child(1) {
             transform: translateX(10px);
             animation: sway-left-right 4s ease-in-out infinite;
@@ -172,8 +185,12 @@
             animation: sway-up-down 4.3s ease-in-out infinite;
             animation-delay: 0.9s;
         }
+        .social-links-right a:nth-child(5) {
+            transform: translateX(-15px);
+            animation: sway-left-right 4.5s ease-in-out infinite;
+            animation-delay: 1.2s;
+        }
 
-        /* Gentle animations */
         @keyframes sway-left-right {
             0% { transform: translateX(10px); }
             50% { transform: translateX(-10px); }
@@ -239,7 +256,6 @@
             box-shadow: var(--glow-hover);
         }
 
-        /* Snow Particles */
         .snow-particle {
             position: absolute;
             background: var(--white);
@@ -265,7 +281,6 @@
         .snow-particle:nth-child(9) { width: 5px; height: 5px; left: 90%; animation-duration: 8s; animation-delay: 8s; }
         .snow-particle:nth-child(10) { width: 3px; height: 3px; left: 95%; animation-duration: 10s; animation-delay: 9s; }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             body {
                 flex-direction: column;
@@ -280,6 +295,11 @@
 
             .logo {
                 max-width: 200px;
+            }
+
+            .docs-button {
+                padding: 0.75rem 2rem;
+                font-size: clamp(1rem, 2vw, 1.2rem);
             }
 
             .social-links-left,
@@ -327,7 +347,8 @@
             .social-links-right a:nth-child(1),
             .social-links-right a:nth-child(2),
             .social-links-right a:nth-child(3),
-            .social-links-right a:nth-child(4) {
+            .social-links-right a:nth-child(4),
+            .social-links-right a:nth-child(5) {
                 transform: translateX(0);
             }
 
@@ -340,6 +361,11 @@
         @media (max-width: 480px) {
             .logo {
                 max-width: 150px;
+            }
+
+            .docs-button {
+                padding: 0.5rem 1.5rem;
+                font-size: clamp(0.875rem, 1.8vw, 1rem);
             }
 
             .social-links-left a,
@@ -365,9 +391,9 @@
             }
         }
 
-        /* Accessibility */
         a:focus,
-        .contract-address:focus {
+        .contract-address:focus,
+        .docs-button:focus {
             outline: 3px solid var(--pink-primary);
             outline-offset: 3px;
         }
@@ -395,15 +421,15 @@
         <a href="https://raidenx.io/sui/cetus-lofita-sui-261512" class="glass-effect glow-effect" title="RaidenX">
             <img src="raidenx.png" alt="RaidenX">
         </a>
+
     </div>
     <div class="content">
         <img src="logo.png" alt="Lofita Yeti Logo" class="logo">
-        <h1>OFFICIAL DOCS SOON</h1>
+        <a href="docs.html" class="docs-button">View Official Docs</a>
         <div class="contract-address glass-effect" onclick="copyContractAddress()" title="Click to copy contract address">
             0x808a8287e9c87c1f97fb133dbd206381804ebd7edfe1af4dbab5eb73668a3449::lofita::LOFITA
         </div>
     </div>
-    <!-- Snow Particles -->
     <div class="snow-particle"></div>
     <div class="snow-particle"></div>
     <div class="snow-particle"></div>

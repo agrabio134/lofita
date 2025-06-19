@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lofita Yeti Whitepaper - Mystic Yeti NFT Auction Platform on the Sui blockchain with Tradeport integration.">
+    <meta name="keywords" content="Lofita Yeti, Mystic Yeti, NFT, Sui blockchain, Tradeport, crypto art, whitepaper">
+    <meta name="author" content="Lofita Yeti Team">
+    <link rel="shortcut icon" href="/logo.png" type="image/x-icon">
+    <title>Lofita Yeti - Mystic Yeti NFT Auction Whitepaper</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWixL+ALaYApGygoY44A3Qf3G0k8aI1g6g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --pink-primary: #ff2b7b;
+            --pink-secondary: #ff66b2;
+            --gray-dark: #1f2937;
+            --gray-light: #6b7280;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --glass-bg: rgba(255, 230, 240, 0.2);
+            --glass-border: 1px solid rgba(255, 230, 240, 0.3);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--gray-dark);
+            background: var(--white);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 100%;
+            max-width: 280px;
+            background: var(--white);
+            border-right: var(--glass-border);
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+            transition: var(--transition);
+            z-index: 1000;
+            transform: translateX(-100%);
+        }
+
+        .sidebar.active {
+            transform: translateX(0);
+        }
+
+        .sidebar h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.4rem, 3vw, 1.6rem);
+            color: var(--pink-primary);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.75rem;
+        }
+
+        .sidebar a {
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            display: block;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+
+        .sidebar a:hover, .sidebar a.active {
+            background: var(--pink-primary);
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .hamburger {
+            display: block;
+            font-size: clamp(1.3rem, 3vw, 1.5rem);
+            color: var(--pink-primary);
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1100;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: clamp(1rem, 5vw, 2rem);
+            flex: 1;
+            padding-top: 4rem;
+        }
+
+        .whitepaper {
+            background: var(--white);
+            padding: clamp(1rem, 4vw, 2rem);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            color: var(--pink-primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            color: var(--gray-dark);
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pink-secondary);
+        }
+
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            color: var(--pink-primary);
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        p, ul {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            margin-bottom: 1.2rem;
+        }
+
+        ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+        }
+
+        a {
+            color: var(--pink-primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--pink-secondary);
+            text-decoration: underline;
+        }
+
+        .meta {
+            text-align: center;
+            color: var(--gray-light);
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            margin-bottom: 2rem;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 2rem 0;
+            animation: slideIn 1s ease-in;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .image-container img {
+            max-width: 100%;
+            width: clamp(200px, 80%, 600px);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .image-container img:hover {
+            transform: scale(1.02);
+        }
+
+        .image-caption {
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            color: var(--gray-light);
+            margin-top: 0.5rem;
+        }
+
+        @media (min-width: 769px) {
+            body {
+                flex-direction: row;
+            }
+
+            .sidebar {
+                transform: translateX(0);
+                position: sticky;
+                top: 0;
+                height: 100vh;
+            }
+
+            .hamburger {
+                display: none;
+            }
+
+            .content {
+                padding-top: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar.active {
+                max-width: 100%;
+                box-shadow: var(--shadow);
+            }
+
+            .content {
+                padding-top: 4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                padding: clamp(0.8rem, 3vw, 1rem);
+            }
+
+            .whitepaper {
+                padding: clamp(0.8rem, 3vw, 1rem);
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="hamburger" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="sidebar">
+        <h2>Lofita Auction</h2>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#vision">Our Vision</a></li>
+            <li><a href="#auction">Auction Process</a></li>
+            <li><a href="#why-invest">Why Invest?</a></li>
+            <li><a href="#features">Platform Features</a></li>
+            <!-- <li><a href="#roadmap">Roadmap</a></li> -->
+            <!-- <li><a href="#contact">Contact</a></li> -->
+        </ul>
+    </div>
+    <div class="content">
+        <div class="whitepaper">
+            <h1>Lofita NFT Auction Platform</h1>
+            <div class="meta">Version 1.0 | June 18, 2025 | Lofita Yeti Team</div>
+
+            <h2 id="overview">Overview</h2>
+            <p>The Lofita NFT Auction Platform is your gateway to the exciting world of NFT trading on the Sui blockchain. Designed to spotlight the vibrant <a href="https://mysticyetissui.lofitheyeti.com/" target="_blank">Mystic Yeti by Lofi</a> collection, our platform also welcomes all NFTs listed on <a href="https://tradeport.xyz" target="_blank">Tradeport</a>. With a seamless auction system powered by Tradeport’s technology, owners can list their NFTs, collectors can bid with confidence, and the highest bidder claims the prize. This whitepaper unveils our vision, the auction experience, and why this platform is a must-watch opportunity for investors.</p>
+            <div class="image-container">
+                <img src="logo.png" alt="Mystic Yeti Logo">
+                <!-- <p class="image-caption">The Mystic Yeti logo, a symbol of creativity and exclusivity.</p> -->
+            </div>
+
+            <h2 id="vision">Our Vision</h2>
+            <p>We’re building a marketplace where digital art thrives, and collectors connect through exciting auctions. The Mystic Yeti NFT Auction Platform prioritizes the iconic Mystic Yeti NFTs while embracing the diversity of Tradeport’s NFT ecosystem. Powered by the fast and affordable Sui blockchain, we aim to make NFT trading accessible, engaging, and rewarding for everyone, from casual collectors to seasoned investors.</p>
+
+            <h3>Our Goals</h3>
+            <ul>
+                <li>Showcase Mystic Yeti NFTs as a premier digital collectible.</li>
+                <li>Create a fair, transparent, and fun auction experience.</li>
+                <li>Build a passionate community of collectors and creators.</li>
+                <li>Drive value for investors through a scalable platform.</li>
+            </ul>
+
+            <h2 id="auction">Auction Process</h2>
+            <p>Our auction system is designed to be simple, secure, and thrilling, ensuring value for NFT owners and excitement for bidders.</p>
+
+            <h3>Listing Your NFTs</h3>
+            <p>Owners can easily list their Mystic Yeti NFTs or any Tradeport-listed NFT. They choose the auction duration (like 24 hours or 7 days) and set a starting bid in SUI or LOFITA tokens. The NFT is securely locked during the auction, giving bidders confidence. Mystic Yeti NFTs get prime placement on our platform, drawing attention from collectors worldwide.</p>
+
+            <h3>Bidding with Experience</h3>
+            <p>Collectors bid by offering an amount higher than the current top bid (e.g., at least 0.1 SUI more). Bids are securely held, and live updates keep the auction exciting and transparent. Everyone can see the action unfold, making every bid a moment of anticipation.</p>
+            <div class="image-container">
+                <img src="desktop.jpg" alt="Auction Interface Mockup">
+                <p class="image-caption">Our sleek auction interface, designed for ease and excitement.</p>
+            </div>
+
+            <h3>Winning the Prize</h3>
+            <p>When the auction ends, the highest bidder receives the NFT instantly. The seller gets the winning bid minus a 2.5% fee (or 1.5% with LOFITA tokens), and other bidders are refunded quickly. It’s a smooth, fair process that rewards participation and delivers results.</p>
+
+            <h2 id="why-invest">Why Invest?</h2>
+            <h3>Standout Opportunity</h3>
+            <ul>
+                <li><strong>Mystic Yeti Spotlight</strong>: The Mystic Yeti collection is a fan favorite, with strong community buzz and artistic appeal.</li>
+                <li><strong>Tradeport’s Reach</strong>: Support for all Tradeport-listed NFTs broadens our market, attracting diverse collectors.</li>
+                <li><strong>Sui’s Edge</strong>: Fast, low-cost transactions make our platform welcoming to all.</li>
+                <li><strong>Community Power</strong>: A growing community drives engagement and long-term value.</li>
+            </ul>
+
+            <h3>Revenue Stream</h3>
+            <p>We charge a 2.5% fee on successful auctions (1.5% for LOFITA payments), creating a steady revenue flow. As Mystic Yeti and other NFTs gain traction, we expect growing transaction volumes, offering strong returns for investors.</p>
+
+            <h3>Market Potential</h3>
+            <p>The NFT market is soaring, with collectors hungry for unique assets like Mystic Yeti. Our platform, built on Sui and powered by Tradeport, is poised to capture this demand, appealing to both crypto enthusiasts and art lovers.</p>
+
+            <h2 id="features">Platform Features</h2>
+            <ul>
+                <li><strong>Easy to Use</strong>: A clean, intuitive interface for all users.</li>
+                <li><strong>Secure Trading</strong>: Top-notch security protects NFTs and funds.</li>
+                <li><strong>Live Bidding</strong>: Real-time updates keep auctions thrilling.</li>
+                <li><strong>Mobile Access</strong>: Upcoming apps for Android will expand our reach.</li>
+            </ul>
+            <div class="image-container">
+                <img src="mobile.jpg" alt="Mobile App Mockup">
+                <p class="image-caption">Our mobile app, coming soon for bidding on the go.</p>
+            </div>
+
+            <!-- <h2 id="roadmap">Roadmap</h2>
+            <ul>
+                <li><strong>Q3 2025</strong>: Launch alpha with Mystic Yeti auctions.</li>
+                <li><strong>Q4 2025</strong>: Add all Tradeport-listed NFTs and LOFITA incentives.</li>
+                <li><strong>Q1 2026</strong>: Full launch with mobile apps.</li>
+                <li><strong>Q2 2026</strong>: Community governance for platform growth.</li>
+            </ul> -->
+
+            <h2 id="contact">Contact</h2>
+            <ul>
+                <li><strong>Twitter</strong>: <a href="https://x.com/LofitaLofi" target="_blank">x.com/LofitaLofi</a></li>
+                <li><strong>Telegram</strong>: <a href="https://t.me/LofitaYETI" target="_blank">t.me/LofitaYETI</a></li>
+                <li><strong>Contract Address</strong>: 0x808a8287e9c87c1f97fb133dbd206381804ebd7edfe1af4dbab5eb73668a3449::lofita::LOFITA</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        document.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('h2');
+            const navLinks = document.querySelectorAll('.sidebar a');
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            const sidebar = document.querySelector('.sidebar');
+            const hamburger = document.querySelector('.hamburger');
+            if (!sidebar.contains(e.target) && !hamburger.contains(e.target) && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
