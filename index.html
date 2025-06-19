@@ -16,7 +16,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Chewy&family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         :root {
             --pink-primary: #ff2b7b;
@@ -133,9 +135,17 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         .social-links-left {
@@ -221,15 +231,31 @@
         }
 
         @keyframes sway-left-right {
-            0% { transform: translateX(10px); }
-            50% { transform: translateX(-10px); }
-            100% { transform: translateX(10px); }
+            0% {
+                transform: translateX(10px);
+            }
+
+            50% {
+                transform: translateX(-10px);
+            }
+
+            100% {
+                transform: translateX(10px);
+            }
         }
 
         @keyframes sway-up-down {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-            100% { transform: translateY(0); }
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
         }
 
         .social-links-left a:hover,
@@ -296,20 +322,96 @@
         }
 
         @keyframes falling-snow {
-            0% { transform: translateY(-100vh); opacity: 0.8; }
-            100% { transform: translateY(100vh); opacity: 0; }
+            0% {
+                transform: translateY(-100vh);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
         }
 
-        .snow-particle:nth-child(1) { width: 5px; height: 5px; left: 10%; animation-duration: 8s; animation-delay: 0s; }
-        .snow-particle:nth-child(2) { width: 3px; height: 3px; left: 20%; animation-duration: 10s; animation-delay: 1s; }
-        .snow-particle:nth-child(3) { width: 4px; height: 4px; left: 30%; animation-duration: 9s; animation-delay: 2s; }
-        .snow-particle:nth-child(4) { width: 6px; height: 6px; left: 40%; animation-duration: 7s; animation-delay: 3s; }
-        .snow-particle:nth-child(5) { width: 5px; height: 5px; left: 50%; animation-duration: 8s; animation-delay: 4s; }
-        .snow-particle:nth-child(6) { width: 3px; height: 3px; left: 60%; animation-duration: 10s; animation-delay: 5s; }
-        .snow-particle:nth-child(7) { width: 4px; height: 4px; left: 70%; animation-duration: 9s; animation-delay: 6s; }
-        .snow-particle:nth-child(8) { width: 6px; height: 6px; left: 80%; animation-duration: 7s; animation-delay: 7s; }
-        .snow-particle:nth-child(9) { width: 5px; height: 5px; left: 90%; animation-duration: 8s; animation-delay: 8s; }
-        .snow-particle:nth-child(10) { width: 3px; height: 3px; left: 95%; animation-duration: 10s; animation-delay: 9s; }
+        .snow-particle:nth-child(1) {
+            width: 5px;
+            height: 5px;
+            left: 10%;
+            animation-duration: 8s;
+            animation-delay: 0s;
+        }
+
+        .snow-particle:nth-child(2) {
+            width: 3px;
+            height: 3px;
+            left: 20%;
+            animation-duration: 10s;
+            animation-delay: 1s;
+        }
+
+        .snow-particle:nth-child(3) {
+            width: 4px;
+            height: 4px;
+            left: 30%;
+            animation-duration: 9s;
+            animation-delay: 2s;
+        }
+
+        .snow-particle:nth-child(4) {
+            width: 6px;
+            height: 6px;
+            left: 40%;
+            animation-duration: 7s;
+            animation-delay: 3s;
+        }
+
+        .snow-particle:nth-child(5) {
+            width: 5px;
+            height: 5px;
+            left: 50%;
+            animation-duration: 8s;
+            animation-delay: 4s;
+        }
+
+        .snow-particle:nth-child(6) {
+            width: 3px;
+            height: 3px;
+            left: 60%;
+            animation-duration: 10s;
+            animation-delay: 5s;
+        }
+
+        .snow-particle:nth-child(7) {
+            width: 4px;
+            height: 4px;
+            left: 70%;
+            animation-duration: 9s;
+            animation-delay: 6s;
+        }
+
+        .snow-particle:nth-child(8) {
+            width: 6px;
+            height: 6px;
+            left: 80%;
+            animation-duration: 7s;
+            animation-delay: 7s;
+        }
+
+        .snow-particle:nth-child(9) {
+            width: 5px;
+            height: 5px;
+            left: 90%;
+            animation-duration: 8s;
+            animation-delay: 8s;
+        }
+
+        .snow-particle:nth-child(10) {
+            width: 3px;
+            height: 3px;
+            left: 95%;
+            animation-duration: 10s;
+            animation-delay: 9s;
+        }
 
         .about-section {
             background: var(--white);
@@ -557,55 +659,65 @@
         }
 
         .footer-section {
-    /* background: var(--glass-bg); */
-    backdrop-filter: blur(10px);
-    border-top: var(--glass-border);
-    padding: 2rem;
-    width: 100% !important;
-    z-index: 2;
-    position: relative;
-    text-align: center;
-    color: var(--gray-dark);
-}
+            /* background: var(--glass-bg); */
+            backdrop-filter: blur(10px);
+            border-top: var(--glass-border);
+            padding: 2rem;
+            width: 100% !important;
+            z-index: 2;
+            position: relative;
+            text-align: center;
+            color: var(--gray-dark);
+        }
 
-.footer-content {
-    width: 100%;
-    margin: 0 auto;
-}
+        .footer-content {
+            width: 100%;
+            margin: 0 auto;
+        }
 
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 1rem;
-}
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
 
-.footer-links a {
-    color: var(--pink-primary);
-    font-family: 'Poppins', sans-serif;
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
+        .footer-links a {
+            color: var(--pink-primary);
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
 
-.footer-links a:hover {
-    color: var(--pink-secondary);
-    transform: scale(1.1);
-}
+        .footer-links a:hover {
+            color: var(--pink-secondary);
+            transform: scale(1.1);
+        }
 
-.footer-links i {
-    font-size: 1.5rem;
-}
+        .footer-links i {
+            font-size: 1.5rem;
+        }
 
-.footer-content p {
-    font-size: clamp(0.9rem, 1.8vw, 1rem);
-    color: var(--gray-light);
-}
+        .footer-content p {
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            color: var(--gray-light);
+        }
 
         @media (max-width: 768px) {
-            .content { padding: 1.5rem; }
-            .logo { max-width: 200px; }
-            .docs-button { padding: 0.75rem 2rem; font-size: clamp(1rem, 2vw, 1.2rem); }
+            .content {
+                padding: 1.5rem;
+            }
+
+            .logo {
+                max-width: 200px;
+            }
+
+            .docs-button {
+                padding: 0.75rem 2rem;
+                font-size: clamp(1rem, 2vw, 1.2rem);
+            }
+
             .social-links-left,
             .social-links-right {
                 position: static;
@@ -620,58 +732,125 @@
                 max-width: 600px;
                 flex-wrap: wrap;
             }
-            .social-links-left { margin-bottom: 1rem; }
-            .social-links-right { margin-bottom: 1rem; }
+
+            .social-links-left {
+                margin-bottom: 1rem;
+            }
+
+            .social-links-right {
+                margin-bottom: 1rem;
+            }
+
             .social-links-left a,
-            .social-links-right a { width: 60px; height: 60px; }
+            .social-links-right a {
+                width: 60px;
+                height: 60px;
+            }
+
             .social-links-left i,
-            .social-links-right i { font-size: 1.5rem; }
+            .social-links-right i {
+                font-size: 1.5rem;
+            }
+
             .social-links-right img,
-            .social-links-left img { width: 28px; height: 28px; }
+            .social-links-left img {
+                width: 28px;
+                height: 28px;
+            }
+
             .social-links-left a:nth-child(1),
             .social-links-left a:nth-child(2),
             .social-links-right a:nth-child(1),
             .social-links-right a:nth-child(2),
             .social-links-right a:nth-child(3),
             .social-links-right a:nth-child(4),
-            .social-links-right a:nth-child(5) { transform: translateX(0); }
-            .contract-address { padding: 0.75rem 1.5rem; font-size: clamp(0.875rem, 1.8vw, 1rem); }
-            .about-content { flex-direction: column; text-align: center; }
-            .about-text { text-align: center; }
-            .about-image { max-width: 100%; }
-            .meme-card img { height: 150px; }
+            .social-links-right a:nth-child(5) {
+                transform: translateX(0);
+            }
+
+            .contract-address {
+                padding: 0.75rem 1.5rem;
+                font-size: clamp(0.875rem, 1.8vw, 1rem);
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-text {
+                text-align: center;
+            }
+
+            .about-image {
+                max-width: 100%;
+            }
+
+            .meme-card img {
+                height: 250px;
+            }
+
             .footer-section {
-        padding: 1.5rem;
-    }
-    .footer-links {
-        gap: 1rem;
-    }
-    .footer-links a {
-        font-size: clamp(0.9rem, 1.8vw, 1rem);
-    }
-    .footer-links i {
-        font-size: 1.3rem;
-    }
+                padding: 1.5rem;
+            }
+
+            .footer-links {
+                gap: 1rem;
+            }
+
+            .footer-links a {
+                font-size: clamp(0.9rem, 1.8vw, 1rem);
+            }
+
+            .footer-links i {
+                font-size: 1.3rem;
+            }
         }
 
         @media (max-width: 480px) {
-            .logo { max-width: 150px; }
-            .docs-button { padding: 0.5rem 1.5rem; font-size: clamp(0.875rem, 1.8vw, 1rem); }
+            .logo {
+                max-width: 150px;
+            }
+
+            .docs-button {
+                padding: 0.5rem 1.5rem;
+                font-size: clamp(0.875rem, 1.8vw, 1rem);
+            }
+
             .social-links-left a,
-            .social-links-right a { width: 70px; height: 70px; }
+            .social-links-right a {
+                width: 70px;
+                height: 70px;
+            }
+
             .social-links-left i,
-            .social-links-right i { font-size: 2.25rem; }
+            .social-links-right i {
+                font-size: 2.25rem;
+            }
+
             .social-links-right img,
-            .social-links-left img { width: 34px; height: 34px; }
-            .contract-address { padding: 0.5rem 1rem; font-size: clamp(0.75rem, 1.6vw, 0.875rem); }
-            .meme-card img { height: 120px; }
+            .social-links-left img {
+                width: 34px;
+                height: 34px;
+            }
+
+            .contract-address {
+                padding: 0.5rem 1rem;
+                font-size: clamp(0.75rem, 1.6vw, 0.875rem);
+            }
+
+            .meme-card img {
+                height: 120px;
+            }
+
             .footer-section {
-        padding: 1rem;
-    }
-    .footer-links {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
+                padding: 1rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
         }
 
         a:focus,
@@ -705,8 +884,8 @@
                 class="glass-effect glow-effect" title="Dexscreener">
                 <img src="dex.png" alt="Dexscreener">
             </a>
-            <a href="https://moonbags.io/bondingcurve/coins/lofita-the-yeti-sui-WpoiuylOHb" class="glass-effect glow-effect"
-                title="Moonbags">
+            <a href="https://moonbags.io/bondingcurve/coins/lofita-the-yeti-sui-WpoiuylOHb"
+                class="glass-effect glow-effect" title="Moonbags">
                 <img src="moonbags.png" alt="Moonbags">
             </a>
             <a href="https://app.cetus.zone/swap/0x2::sui::SUI/0x808a8287e9c87c1f97fb133dbd206381804ebd7edfe1af4dbab5eb73668a3449::lofita::LOFITA"
@@ -741,9 +920,12 @@
         <div class="about-content">
             <div class="about-text">
                 <h2>About Us</h2>
-                <p>My name is LOFITA. I was frozen in the Himalayas for centuries, but I've awakened to join my love LOFI. Together, we’re ready to build a brighter future 🧊💕</p>
+                <p>My name is LOFITA. I was frozen in the Himalayas for centuries, but I've awakened to join my love
+                    LOFI. Together, we’re ready to build a brighter future 🧊💕</p>
                 <p>Never Give up <3, Lofi I'm coming!</p>
-                <p>Join us on our journey! Follow us on <a href="https://x.com/LofitaLofi" target="_blank">Official Twitter</a> and join our <a href="https://t.me/LofitaYETI" target="_blank">Official Telegram</a>.</p>
+                        <p>Join us on our journey! Follow us on <a href="https://x.com/LofitaLofi"
+                                target="_blank">Official Twitter</a> and join our <a href="https://t.me/LofitaYETI"
+                                target="_blank">Official Telegram</a>.</p>
             </div>
             <div class="about-image">
                 <img src="/lofita_images_3.jpg" alt="Lofita Yeti">
@@ -758,7 +940,7 @@
                 <div class="roadmap-phase">
                     <h3>Phase 1: Launch</h3>
                     <ul>
-                        <li>Bonded in Cetus</li>                        
+                        <li>Bonded in Cetus</li>
                         <li>DEX Listing</li>
                         <li>Suivision Verified</li>
                         <li>Suiscan Verified</li>
@@ -808,28 +990,32 @@
                 <div class="meme-card" data-image="/lofita_images_1.jpg">
                     <img src="/lofita_images_1.jpg" alt="Lofita Meme 1">
                     <div class="meme-caption">When Lofita thaws out and sees the crypto market! 🧊🚀</div>
-                    <div class="meme-share" onclick="shareMeme('/lofita_images_1.jpg', 'When Lofita thaws out and sees the crypto market! 🧊🚀')">
+                    <div class="meme-share"
+                        onclick="shareMeme('/lofita_images_1.jpg', 'When Lofita thaws out and sees the crypto market! 🧊🚀')">
                         <i class="fas fa-share-alt"></i>
                     </div>
                 </div>
                 <div class="meme-card" data-image="/lofita_images_2.jpg">
                     <img src="/lofita_images_2.jpg" alt="Lofita Meme 2">
                     <div class="meme-caption">Lofita ready to HODL on Sui! 💪💕</div>
-                    <div class="meme-share" onclick="shareMeme('/lofita_images_2.jpg', 'Lofita ready to HODL on Sui! 💪💕')">
+                    <div class="meme-share"
+                        onclick="shareMeme('/lofita_images_2.jpg', 'Lofita ready to HODL on Sui! 💪💕')">
                         <i class="fas fa-share-alt"></i>
                     </div>
                 </div>
                 <div class="meme-card" data-image="/lofita_images_4.jpg">
                     <img src="/lofita_images_4.jpg" alt="Lofita Meme 3">
                     <div class="meme-caption">When you mint a Lofita Yeti NFT! 😎❄</div>
-                    <div class="meme-share" onclick="shareMeme('/lofita_images_4.jpg', 'When you mint a Lofita Yeti NFT! 😎❄')">
+                    <div class="meme-share"
+                        onclick="shareMeme('/lofita_images_4.jpg', 'When you mint a Lofita Yeti NFT! 😎❄')">
                         <i class="fas fa-share-alt"></i>
                     </div>
                 </div>
                 <div class="meme-card" data-image="/lofita_images_5.jpg">
                     <img src="/lofita_images_5.jpg" alt="Lofita Meme 4">
                     <div class="meme-caption">Lofita chasing LOFI to the moon! 🌙💗</div>
-                    <div class="meme-share" onclick="shareMeme('/lofita_images_5.jpg', 'Lofita chasing LOFI to the moon! 🌙💗')">
+                    <div class="meme-share"
+                        onclick="shareMeme('/lofita_images_5.jpg', 'Lofita chasing LOFI to the moon! 🌙💗')">
                         <i class="fas fa-share-alt"></i>
                     </div>
                 </div>
@@ -843,70 +1029,80 @@
                 <div class="meme-card" data-image="/lofita_images_7.jpg">
                     <img src="/lofita_images_7.jpg" alt="Lofita Meme 6">
                     <div class="meme-caption">Lofita sliding into your wallet! 💸❄</div>
-                    <div class="meme-share" onclick="shareMeme('/lofita_images_7.jpg', 'Lofita sliding into your wallet! 💸❄')">
+                    <div class="meme-share"
+                        onclick="shareMeme('/lofita_images_7.jpg', 'Lofita sliding into your wallet! 💸❄')">
                         <i class="fas fa-share-alt"></i>
                     </div>
                 </div>
                 <div class="meme-card" data-image="/lofita_images_9.jpg">
                     <img src="/lofita_images_9.jpg" alt="Lofita Meme 7">
                     <div class="meme-caption">When Lofita joins the NFT party! 🎉🧊</div>
-                    <div class="meme-share" onclick="shareMeme('/lofita_images_9.jpg', 'When Lofita joins the NFT party! 🎉🧊')">
+                    <div class="meme-share"
+                        onclick="shareMeme('/lofita_images_9.jpg', 'When Lofita joins the NFT party! 🎉🧊')">
                         <i class="fas fa-share-alt"></i>
                     </div>
                 </div>
                 <div class="meme-card" data-image="/lofita_images_10.jpg">
                     <img src="/lofita_images_10.jpg" alt="Lofita Meme 8">
                     <div class="meme-caption">Lofita’s pink vibes on Sui! 💕🌸</div>
-                    <div class="meme-share" onclick="shareMeme('/lofita_images_10.jpg', 'Lofita’s pink vibes on Sui! 💕🌸')">
+                    <div class="meme-share"
+                        onclick="shareMeme('/lofita_images_10.jpg', 'Lofita’s pink vibes on Sui! 💕🌸')">
                         <i class="fas fa-share-alt"></i>
                     </div>
                 </div>
                 <div class="meme-card" data-image="/lofita_images_11.jpg">
                     <img src="/lofita_images_11.jpg" alt="Lofita Meme 9">
                     <div class="meme-caption">Lofita ready for the bull run! 🐂❄</div>
-                    <div class="meme-share" onclick="shareMeme('/lofita_images_11.jpg', 'Lofita ready for the bull run! 🐂❄')">
+                    <div class="meme-share"
+                        onclick="shareMeme('/lofita_images_11.jpg', 'Lofita ready for the bull run! 🐂❄')">
                         <i class="fas fa-share-alt"></i>
                     </div>
                 </div>
                 <div class="meme-card" data-image="/lofita_images_12.jpg">
                     <img src="/lofita_images_12.jpg" alt="Lofita Meme 10">
                     <div class="meme-caption">When Lofita meets LOFI! 💖🧊</div>
-                    <div class="meme-share" onclick="shareMeme('/lofita_images_12.jpg', 'When Lofita meets LOFI! 💖🧊')">
+                    <div class="meme-share"
+                        onclick="shareMeme('/lofita_images_12.jpg', 'When Lofita meets LOFI! 💖🧊')">
                         <i class="fas fa-share-alt"></i>
                     </div>
                 </div>
                 <div class="meme-card" data-image="/lofita_images_13.jpg">
                     <img src="/lofita_images_13.jpg" alt="Lofita Meme 11">
                     <div class="meme-caption">Lofita’s icy cool NFT drop! 😎❄</div>
-                    <div class="meme-share" onclick="shareMeme('/lofita_images_13.jpg', 'Lofita’s icy cool NFT drop! 😎❄')">
+                    <div class="meme-share"
+                        onclick="shareMeme('/lofita_images_13.jpg', 'Lofita’s icy cool NFT drop! 😎❄')">
                         <i class="fas fa-share-alt"></i>
                     </div>
                 </div>
                 <div class="meme-card" data-image="/lofita_images_14.jpg">
                     <img src="/lofita_images_14.jpg" alt="Lofita Meme 12">
                     <div class="meme-caption">Lofita staking like a pro! 💪💸</div>
-                    <div class="meme-share" onclick="shareMeme('/lofita_images_14.jpg', 'Lofita staking like a pro! 💪💸')">
+                    <div class="meme-share"
+                        onclick="shareMeme('/lofita_images_14.jpg', 'Lofita staking like a pro! 💪💸')">
                         <i class="fas fa-share-alt"></i>
                     </div>
                 </div>
                 <div class="meme-card" data-image="/lofita_images_15.jpg">
                     <img src="/lofita_images_15.jpg" alt="Lofita Meme 13">
                     <div class="meme-caption">Lofita’s snowstorm of gains! 🌨️🚀</div>
-                    <div class="meme-share" onclick="shareMeme('/lofita_images_15.jpg', 'Lofita’s snowstorm of gains! 🌨️🚀')">
+                    <div class="meme-share"
+                        onclick="shareMeme('/lofita_images_15.jpg', 'Lofita’s snowstorm of gains! 🌨️🚀')">
                         <i class="fas fa-share-alt"></i>
                     </div>
                 </div>
                 <div class="meme-card" data-image="/lofita_images_16.jpg">
                     <img src="/lofita_images_16.jpg" alt="Lofita Meme 14">
                     <div class="meme-caption">Lofita chilling on the blockchain! 🧊😜</div>
-                    <div class="meme-share" onclick="shareMeme('/lofita_images_16.jpg', 'Lofita chilling on the blockchain! 🧊😜')">
+                    <div class="meme-share"
+                        onclick="shareMeme('/lofita_images_16.jpg', 'Lofita chilling on the blockchain! 🧊😜')">
                         <i class="fas fa-share-alt"></i>
                     </div>
                 </div>
                 <div class="meme-card" data-image="/lofita_images_17.jpg">
                     <img src="/lofita_images_17.jpg" alt="Lofita Meme 15">
                     <div class="meme-caption">Lofita’s epic NFT adventure! 🌟❄</div>
-                    <div class="meme-share" onclick="shareMeme('/lofita_images_17.jpg', 'Lofita’s epic NFT adventure! 🌟❄')">
+                    <div class="meme-share"
+                        onclick="shareMeme('/lofita_images_17.jpg', 'Lofita’s epic NFT adventure! 🌟❄')">
                         <i class="fas fa-share-alt"></i>
                     </div>
                 </div>
@@ -916,15 +1112,17 @@
             </div>
         </div>
         <footer class="footer-section">
-    <div class="footer-content">
-        <div class="footer-links">
-            <a href="https://x.com/LofitaLofi" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://t.me/lofitamemes" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
-            <a href="https://lofitatheyeti.fun/" target="_blank" title="Website">LofitaYeti.fun</a>
-        </div>
-        <p>&copy; 2025 Lofita Yeti. All rights reserved.</p>
-    </div>
-</footer>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="https://x.com/LofitaLofi" target="_blank" title="Twitter"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="https://t.me/lofitamemes" target="_blank" title="Telegram"><i
+                            class="fab fa-telegram"></i></a>
+                    <a href="https://lofitatheyeti.fun/" target="_blank" title="Website">LofitaYeti.fun</a>
+                </div>
+                <p>&copy; 2025 Lofita Yeti. All rights reserved.</p>
+            </div>
+        </footer>
     </section>
 
     <script>
@@ -943,16 +1141,16 @@
             const websiteLink = 'https://lofitatheyeti.fun/';
             const tweetText = encodeURIComponent(`${caption}\nCA: ${contractAddress}\nTG: ${telegramLink}\n${websiteLink}\n#LofitaMeme`);
             const twitterUrl = `https://x.com/intent/tweet?text=${tweetText}`;
-            
+
             // Prompt user to download the image for manual upload
             const link = document.createElement('a');
             link.href = imagePath;
             link.download = imagePath.split('/').pop();
             link.click();
-            
+
             // Open Twitter intent in a new tab
             window.open(twitterUrl, '_blank');
-            
+
             alert('Image downloaded! Please upload it to Twitter when posting the tweet.');
         }
     </script>
